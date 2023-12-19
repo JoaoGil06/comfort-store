@@ -1,13 +1,21 @@
-import { CategoryType } from "./DTOs/Category.dto";
-import { CompanyDto } from "./DTOs/Company.dto";
-import { PaginationDto } from "./DTOs/Pagination.dto";
-import { ProductDto } from "./DTOs/Product.dto";
+import { CategoryType } from './DTOs/Category.dto';
+import { CompanyDto } from './DTOs/Company.dto';
+import { PaginationDto } from './DTOs/Pagination.dto';
+import { ProductDto } from './DTOs/Product.dto';
 
 export interface ProductsLoaderResponse {
-    products: ProductDto[];
-    meta: {
-        categories: CategoryType[];
-        companies: CompanyDto[];
-        pagination: PaginationDto;
-    }
+	products: ProductDto[];
+	meta: {
+		categories: CategoryType[];
+		companies: CompanyDto[];
+		pagination: PaginationDto;
+	};
+	params?: {
+		search?: string;
+		company?: string;
+		category?: string;
+		shipping?: boolean;
+		order?: string;
+		price?: number;
+	};
 }
