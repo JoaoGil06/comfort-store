@@ -1,0 +1,1 @@
+export type CompanyDto = 'all' | 'Modenza' | 'Luxora' | 'Artifex' | 'Comfora' | 'Homestead'

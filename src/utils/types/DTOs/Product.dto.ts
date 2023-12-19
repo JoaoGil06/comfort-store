@@ -1,4 +1,4 @@
-import { CategoryType } from './Category.type';
+import { CategoryType } from './Category.dto';
 
 export type ProductDto = {
 	id: number;
