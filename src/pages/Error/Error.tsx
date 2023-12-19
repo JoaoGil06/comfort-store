@@ -2,7 +2,7 @@ import { useRouteError, isRouteErrorResponse, Link } from 'react-router-dom';
 
 const Error = () => {
 	const error = useRouteError();
-	console.log('[Error]: ', error);
+
 	if (isRouteErrorResponse(error)) {
 		if (error.status === 404) {
 			return (
