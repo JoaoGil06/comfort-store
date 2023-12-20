@@ -5,6 +5,8 @@ import { customFetch } from '../../utils/api';
 import { SingleProductResponse } from '../../utils/types/SingleProductLoaderResponse.type';
 import { formatPrice } from '../../utils/formatPrice';
 import { generateAmountOptions } from '../../utils/generateAmountOptions';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../../state/cart/cartSlice';
 
 export const loader = async ({ params }: LoaderFunctionArgs): Promise<SingleProductResponse> => {
 	const response = await customFetch(`/products/${params.id}`);
@@ -20,6 +22,23 @@ const SingleProduct = () => {
 
 	const handleAmount = (e: React.ChangeEvent<HTMLSelectElement>): void => {
 		setAmount(parseInt(e.target.value));
+	};
+
+	const cartProduct = {
+		cartID: product.id + productColor,
+		productID: product.id,
+		image,
+		title,
+		price: +price,
+		company,
+		productColor,
+		amount,
+	};
+
+	const dispatch = useDispatch();
+
+	const addToCart = (): void => {
+		dispatch(addItem({ product: cartProduct }));
 	};
 
 	return (
@@ -69,7 +88,7 @@ const SingleProduct = () => {
 					</div>
 					{/* CAR BTN */}
 					<div className='mt-10'>
-						<button className='btn btn-secondary btn-md' onClick={() => console.log('add to cart')}>
+						<button className='btn btn-secondary btn-md' onClick={addToCart}>
 							Add to cart
 						</button>
 					</div>
