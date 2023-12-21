@@ -4,6 +4,6 @@ export interface FormInputProps {
 	label: string;
 	name: string;
 	type: HTMLInputTypeAttribute;
-	size: string;
+	size?: string;
 	defaultValue?: string;
 }
