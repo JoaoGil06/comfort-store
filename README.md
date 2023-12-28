@@ -2,6 +2,8 @@
 
 - This project is an e-commerce about interior decoration, where it is possible to follow the entire normal flow of a store, from registration to purchase. Including even a "demo" user login. This project aims to study and improve my skills as a front-end developer.
 
+### [Click here to see the live demo](comfort-store-8tmtdhrzn-joao-gils-projects.vercel.app)
+
 # Features
 
 - [⚛ React JS](https://react.dev/)
