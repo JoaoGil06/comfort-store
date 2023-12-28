@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 import { AddItemReducerPayloadType, CartState, EditItemReducerPayloadType, RemoveItemReducerPayloadType } from './types/CartState.type';
 
-const defaultState: CartState = {
+const initialState: CartState = {
 	cartItems: [],
 	numItemsInCart: 0,
 	cartTotal: 0,
@@ -13,7 +13,7 @@ const defaultState: CartState = {
 
 const getCartFromLocalStorage = (): CartState => {
 	const cartString = localStorage.getItem('cart');
-	return cartString ? JSON.parse(cartString) : defaultState;
+	return cartString ? JSON.parse(cartString) : initialState;
 };
 
 const cartSlice = createSlice({
@@ -36,8 +36,8 @@ const cartSlice = createSlice({
 			toast.success('Item added to cart');
 		},
 		clearCart: (): CartState => {
-			localStorage.setItem('cart', JSON.stringify(defaultState));
-			return defaultState;
+			localStorage.setItem('cart', JSON.stringify(initialState));
+			return initialState;
 		},
 		removeItem: (state, action: RemoveItemReducerPayloadType): void => {
 			const { cartID } = action.payload;
